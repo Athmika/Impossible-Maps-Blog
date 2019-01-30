@@ -18,7 +18,7 @@ email: asenthilkumar@olin.edu
 description: >- # this means to ignore newlines until "baseurl:"
 
 baseurl: /Impossible-Maps-Blog # the subpath of your site, e.g. /blog
-url: Athmika.github.io"" # the base hostname & protocol for your site, e.g. http://example.com
+url: Athmika.github.io # the base hostname & protocol for your site, e.g. http://example.com
 
 
 # Build settings
