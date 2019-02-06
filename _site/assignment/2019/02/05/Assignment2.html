@@ -1,0 +1,102 @@
+<!-- Documentation: https://www.mapbox.com/mapbox-gl-js/style-spec/#sources-geojson -->
+<!-- Mapbox styles: https://github.com/mapbox/mapbox-gl-styles -->
+<!-- Earthquake data: https://earthquake.usgs.gov/ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    html,
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+    <title> Earthquakes on January 30, 2018 </title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.40.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+    <div id="map"> </div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXRobWlrYSIsImEiOiJjanJqYW9qOW4wYW1zNDNxaWFpNHd4MjRyIn0.6D7p6trEPvpxnI9E1nqPBA';
+    var map = new mapboxgl.Map({
+        container: 'map', // you need this
+        style: 'mapbox://styles/mapbox/light-v9', // you also need this 
+        center: [20, 60], // [long, lat] Different than leaflet, different than google maps, same as geojson! 
+        zoom: 1.89,
+    });
+
+    // Source is where the data is coming from, layer is what you're going to do with it.
+    map.on('load', function() {
+        map.addSource('russia', {
+            type: 'geojson',
+            data: 'russia.json',
+        });
+
+        map.addSource('canada', {
+            type: 'geojson',
+            data: 'canada.json',
+        });
+
+        map.addSource('UP', {
+            type: 'geojson',
+            data: 'UP.json',
+        });
+
+        map.addLayer({
+        "id": "russia",
+        "type": "fill",
+        "source": "russia",
+        "layout": {},
+        "paint": {
+            "fill-color":'blue',
+            "fill-opacity": .5
+        },
+        "filter": ["==", "$type", "Polygon"]
+      });
+
+map.addLayer({
+        "id": "canada",
+        "type": "fill",
+        "source": "canada",
+        "layout": {},
+        "paint": {
+            "fill-color":'blue',
+            "fill-opacity": .5
+        },
+        "filter": ["==", "$type", "Polygon"]
+      });
+
+
+map.addLayer({
+        "id": "UP",
+        "type": "fill",
+        "source": "UP",
+        "layout": {},
+        "paint": {
+            "fill-color":'red',
+            "fill-opacity": .5
+        },
+        "filter": ["==", "$type", "Polygon"]
+      });
+
+
+    });
+
+ 
+
+
+    </script>
+</body>
+
+</html>
