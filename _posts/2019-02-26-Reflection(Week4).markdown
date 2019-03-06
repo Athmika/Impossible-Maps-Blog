@@ -1,6 +1,10 @@
 ---
 layout: default
+<<<<<<< HEAD
 title:  "Reflection Week-1"
+=======
+title:  "Reflection Week-2"
+>>>>>>> 55973be88de30749ac2cbee90253f5bcb8f86069
 date:   2019-02-26 20:09:18 -0500
 categories: Reflections
 ---
